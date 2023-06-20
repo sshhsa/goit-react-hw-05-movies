@@ -1,14 +1,15 @@
 import { NavLink } from 'react-router-dom';
+import css from './Header.module.css';
 
 function Header() {
   return (
     <header>
-      <ul>
-        <li>
-          <NavLink to="/">HOME</NavLink>
+      <ul className={css.headerList}>
+        <li className={css.headerListItem}>
+          <NavLink to="home">Home</NavLink>
         </li>
-        <li>
-          <NavLink to="/movies">Movies</NavLink>
+        <li className={css.headerListItem}>
+          <NavLink to="movies">Movies</NavLink>
         </li>
       </ul>
     </header>

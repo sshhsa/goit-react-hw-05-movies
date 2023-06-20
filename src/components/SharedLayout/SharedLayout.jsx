@@ -1,17 +1,13 @@
+import Header from 'components/Header/Header';
+import { Outlet } from 'react-router-dom';
+
+import css from './SharedLayout.module.css';
+
 function SharedLayout() {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#ffffff',
-        backgroundColor: '#121212',
-      }}
-    >
-      SharedLayout
+    <div className={css.container}>
+      <Header />
+      <Outlet />
     </div>
   );
 }
