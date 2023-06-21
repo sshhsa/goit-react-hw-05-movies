@@ -6,15 +6,13 @@ import NotFound from 'pages/NotFound';
 
 function App() {
   return (
-    <div>
-      <Routes>
-        <Route path="/" element={<SharedLayout />}>
-          <Route path="home" element={<Home />} />
-          <Route path="movies" element={<Movies />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route path="home" element={<Home />} />
+        <Route path="movies" element={<Movies />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   );
 }
 

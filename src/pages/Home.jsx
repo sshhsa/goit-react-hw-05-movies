@@ -1,3 +1,5 @@
+// import fetchTrendingMovies from "services/trending";
+
 function Home() {
   return (
     <div
