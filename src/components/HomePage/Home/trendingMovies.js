@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_KEY } from './apiKey';
+import { API_KEY } from '../../../services/apiKey';
 
 async function fetchTrendingMovies() {
   try {

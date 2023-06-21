@@ -1,19 +1,7 @@
+import MovieDetails from 'components/MoviesPage/MovieDetails/MovieDetails';
+
 function Movies() {
-  return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#ffffff',
-        backgroundColor: '#121212',
-      }}
-    >
-      Movies
-    </div>
-  );
+  return <MovieDetails />;
 }
 
 export default Movies;
