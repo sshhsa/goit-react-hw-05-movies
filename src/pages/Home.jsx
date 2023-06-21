@@ -1,4 +1,4 @@
-// import fetchTrendingMovies from "services/trending";
+// import fetchTrendingMovies from "services/trendingMovies";
 
 function Home() {
   return (
