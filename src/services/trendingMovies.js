@@ -6,11 +6,15 @@ async function fetchTrendingMovies() {
     const url = `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`;
     const response = await axios.get(url);
 
-    if (response.results.length === 0) {
-      throw new Error('Backend is empty by this request');
+    if (
+      response.data &&
+      response.data.results &&
+      response.data.results.length > 0
+    ) {
+      return response.data.results;
+    } else {
+      throw new Error('Backend is empty or response format is incorrect');
     }
-
-    return response.results;
   } catch (error) {
     console.log(error);
     return [];
