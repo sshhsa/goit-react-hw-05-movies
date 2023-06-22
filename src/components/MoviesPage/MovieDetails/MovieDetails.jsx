@@ -28,10 +28,18 @@ function MovieDetails() {
   const { poster_path, original_title, popularity, tagline, overview } =
     movieDetails;
 
+  const imageUrl = `https://image.tmdb.org/t/p/w400/${poster_path}`;
+
   return (
     <div className={css.movieDetails}>
       <div className={css.containerImage}>
-        {poster_path && <img src={poster_path} alt={original_title} />}
+        {poster_path && (
+          <img
+            src={imageUrl}
+            alt={original_title}
+            className={css.imageMovieDetails}
+          />
+        )}
       </div>
       <div className={css.containerInfo}>
         {original_title && (

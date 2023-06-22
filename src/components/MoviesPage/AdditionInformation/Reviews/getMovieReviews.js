@@ -1,16 +1,16 @@
 import axios from 'axios';
-import { API_KEY } from './apiKey';
+import { API_KEY } from '../../../../services/apiKey';
 
 async function fetchGetMovieReviews(movie_id) {
   try {
     const url = `https://api.themoviedb.org/3/movie/${movie_id}/reviews?api_key=${API_KEY}`;
     const response = await axios.get(url);
 
-    if (response.results.length === 0) {
+    if (response.data.results.length === 0) {
       throw new Error('Backend is empty by this request');
     }
 
-    return response.results;
+    return response.data.results;
   } catch (error) {
     console.log(error);
     return [];
