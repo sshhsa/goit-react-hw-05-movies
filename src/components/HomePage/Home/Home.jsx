@@ -20,7 +20,7 @@ function HomeComponent() {
     <ul className={css.trendingListMovies}>
       {movies.map(movie => (
         <li key={movie.id} className={css.contactsListItem}>
-          <NavLink to={`/movies/${movie.id}`} className={css.movieLink}>
+          <NavLink to={`/movies/:movieId`} className={css.movieLink}>
             {movie.title}
           </NavLink>
         </li>

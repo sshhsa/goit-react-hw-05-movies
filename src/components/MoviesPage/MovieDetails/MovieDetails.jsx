@@ -32,6 +32,7 @@ function MovieDetails() {
 
   return (
     <div className={css.movieDetails}>
+      <button>Go back</button>
       <div className={css.containerImage}>
         {poster_path && (
           <img

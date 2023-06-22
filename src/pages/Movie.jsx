@@ -1,7 +1,6 @@
-import MovieDetails from 'components/MoviesPage/MovieDetails/MovieDetails';
-
+import MovieComponent from 'components/MoviesPage/Movie/MovieComponent';
 function Movies() {
-  return <MovieDetails />;
+  return <MovieComponent />;
 }
 
 export default Movies;
