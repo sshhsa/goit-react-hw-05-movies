@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { Outlet, NavLink, useParams } from 'react-router-dom';
+import { useEffect, useState, Suspense } from 'react';
+import { Outlet, NavLink, useParams, useLocation } from 'react-router-dom';
 
 import fetchGetMovieDetails from './getMovieDetails';
 import css from './MovieDetails.module.css';
@@ -7,6 +7,8 @@ import css from './MovieDetails.module.css';
 function MovieDetails() {
   const { movie_id } = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
+
+  const location = useLocation();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,7 +34,7 @@ function MovieDetails() {
 
   return (
     <div className={css.movieDetails}>
-      <button>Go back</button>
+      <NavLink to={location.state?.from ?? '/home'}>Go back</NavLink>
       <div className={css.containerImage}>
         {poster_path && (
           <img
@@ -61,7 +63,9 @@ function MovieDetails() {
         <NavLink to={`/movies/${movie_id}/reviews`}>Review</NavLink>
       </div>
       <div className={css.contentAddInfo}>
-        <Outlet />
+        <Suspense fallback={<div>Loading page...</div>}>
+          <Outlet />
+        </Suspense>
       </div>
     </div>
   );

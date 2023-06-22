@@ -1,4 +1,4 @@
-import { NavLink, useSearchParams } from 'react-router-dom';
+import { NavLink, useSearchParams, useLocation } from 'react-router-dom';
 import { React, useState, useEffect } from 'react';
 import css from './Movie.module.css';
 import fetchSearchMovies from './searchMovies';
@@ -7,6 +7,7 @@ function MovieComponent() {
   const [results, setResults] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const inputQuery = searchParams.get('query') ?? '';
+  const location = useLocation();
 
   const updateQueryString = event => {
     const queryIdValue = event.target.value;
@@ -51,6 +52,7 @@ function MovieComponent() {
         <input
           type="text"
           value={inputQuery}
+          name="inputQuery"
           onChange={updateQueryString}
           placeholder="Let's search for the movie by its title"
         />
@@ -62,7 +64,11 @@ function MovieComponent() {
       <ul className={css.listMoviesBySearch}>
         {filteredQuery.map(query => (
           <li key={query.id}>
-            <NavLink to={`/movies/${query.id}`} className={css.movieLink}>
+            <NavLink
+              to={`/movies/${query.id}`}
+              state={{ from: location }}
+              className={css.movieLink}
+            >
               {query.title}
             </NavLink>
           </li>

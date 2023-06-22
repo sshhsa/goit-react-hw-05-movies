@@ -19,15 +19,20 @@ function Reviews() {
 
   return (
     <ul className={css.reviews}>
-      {reviews.map(review => (
-        <li key={review.id}>
-          <h3>Author: {review.author}</h3>
-          <p>{review.content}</p>
-        </li>
-      ))}
+      {reviews ? (
+        reviews.map(review => (
+          <li key={review.id}>
+            <h3>Author: {review.author}</h3>
+            <p>{review.content}</p>
+          </li>
+        ))
+      ) : (
+        <p className={css.messageEmptyReviews}>
+          We don`t have any reviews for this movie
+        </p>
+      )}
     </ul>
   );
-  // <p className={css.messageEmptyReviews}>We don`t have any reviews for this movie</p>
 }
 
 export default Reviews;
