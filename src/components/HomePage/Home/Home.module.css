@@ -1,0 +1,48 @@
+.boxTrending {
+    margin: 20px 0px;
+    margin-left: auto;
+    margin-right: auto;
+
+    max-width: 1000px;
+}
+
+.labelTrending {
+    margin-bottom: 10px;
+
+    color: var(--main-dark-clr);
+}
+
+.trendingListMovies {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 20px;
+    padding: 30px 10px;
+
+    max-width: 1200px;
+
+    border-radius: var(--brd-radius);
+    background-color: var(--dark-clr);
+}
+
+.movieLink {
+    padding: 5px 10px;
+
+    font-size: 18px;
+    text-decoration: none;
+
+    border-radius: var(--brd-radius);
+
+    color: var(--main-light-clr);
+    background-color: rgba(19, 19, 70, 0.5);
+
+    transition: color, background-color var(--default-animation);
+}
+
+.movieLink:hover,
+.movieLink:focus {
+    color: var(--add-clr-2);
+    background-color: var(--main-light-clr);
+}

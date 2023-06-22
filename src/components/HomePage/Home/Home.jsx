@@ -18,19 +18,22 @@ function HomeComponent() {
   }, []);
 
   return (
-    <ul className={css.trendingListMovies}>
-      {movies.map(movie => (
-        <li key={movie.id} className={css.contactsListItem}>
-          <NavLink
-            to={`/movies/${movie.id}`}
-            state={{ from: location }}
-            className={css.movieLink}
-          >
-            {movie.title}
-          </NavLink>
-        </li>
-      ))}
-    </ul>
+    <div className={css.boxTrending}>
+      <h1 className={css.labelTrending}>Trending movies</h1>
+      <ul className={css.trendingListMovies}>
+        {movies.map(movie => (
+          <li key={movie.id} className={css.trendingListItem}>
+            <NavLink
+              to={`/movies/${movie.id}`}
+              state={{ from: location }}
+              className={css.movieLink}
+            >
+              {movie.title}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 

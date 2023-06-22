@@ -33,34 +33,48 @@ function MovieDetails() {
   const imageUrl = `https://image.tmdb.org/t/p/w400/${poster_path}`;
 
   return (
-    <div className={css.movieDetails}>
-      <NavLink to={location.state?.from ?? '/home'}>Go back</NavLink>
-      <div className={css.containerImage}>
-        {poster_path && (
-          <img
-            src={imageUrl}
-            alt={original_title}
-            className={css.imageMovieDetails}
-          />
-        )}
-      </div>
-      <div className={css.containerInfo}>
-        {original_title && (
-          <h1 className={css.labelMovieDetails}>{original_title}</h1>
-        )}
-        {popularity && <span>Popularity {popularity.toFixed(1)}</span>}
-        {tagline && <p>{tagline}</p>}
-        {overview && (
-          <>
-            <h2>Overview</h2>
-            <p className={css.textMovieDetails}>{overview}</p>
-          </>
-        )}
-      </div>
-      <div className={css.addInfoBox}>
-        <h2>Addition information</h2>
-        <NavLink to={`/movies/${movie_id}/cast`}>Cast</NavLink>
-        <NavLink to={`/movies/${movie_id}/reviews`}>Review</NavLink>
+    <div>
+      <div className={css.movieDetails}>
+        <div className={css.movieImageButton}>
+          <NavLink
+            to={location.state?.from ?? '/home'}
+            className={css.buttonGoBack}
+          >
+            Go back
+          </NavLink>
+          {poster_path && (
+            <img
+              src={imageUrl}
+              alt={original_title}
+              className={css.imageMovieDetails}
+            />
+          )}
+        </div>
+        <div className={css.movieTextInfo}>
+          <div className={css.containerInfo}>
+            {original_title && (
+              <h1 className={css.labelMovieDetails}>{original_title}</h1>
+            )}
+            {popularity && (
+              <span>
+                Popularity:{' '}
+                <span className={css.accentText}>{popularity.toFixed(1)}</span>
+              </span>
+            )}
+            {tagline && <p>{tagline}</p>}
+            {overview && (
+              <>
+                <h2 className={css.labelMovie}>Overview</h2>
+                <p className={css.textMovieDetails}>{overview}</p>
+              </>
+            )}
+          </div>
+          <div className={css.addInfoBox}>
+            <h2 className={css.labelMovie}>Addition information</h2>
+            <NavLink to={`/movies/${movie_id}/cast`}>Cast</NavLink>
+            <NavLink to={`/movies/${movie_id}/reviews`}>Review</NavLink>
+          </div>
+        </div>
       </div>
       <div className={css.contentAddInfo}>
         <Suspense fallback={<div>Loading page...</div>}>

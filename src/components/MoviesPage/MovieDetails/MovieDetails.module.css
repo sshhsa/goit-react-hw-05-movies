@@ -1,0 +1,61 @@
+.movieDetails {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    margin: 20px 10px;
+}
+
+.buttonGoBack {
+    padding: 5px 10px;
+
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--brd-radius);
+
+    color: var(--main-light-clr);
+    background-color: var(--add-clr-3);
+
+    transition: color, background-color var(--default-animation);
+}
+
+.buttonGoBack:hover,
+.buttonGoBack:focus {
+    color: var(--main-dark-clr);
+    background-color: var(--main-light-clr);
+}
+
+.imageMovieDetails {
+    display: block;
+    width: 400px;
+    height: auto;
+
+    margin-top: var(--default-gap);
+
+    border-radius: var(--brd-radius);
+}
+
+.movieTextInfo {
+    padding: var(--default-gap);
+    max-width: 700px;
+
+    color: var(--main-light-clr);
+    background-color: var(--add-clr-3);
+}
+
+.labelMovieDetails {
+    color: var(--main-dark-clr);
+}
+
+.accentText {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--accent-clr);
+}
+
+.labelMovie {
+    color: var(--add-clr-2);
+}

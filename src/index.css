@@ -1,5 +1,27 @@
-body {
+:root {
+  --main-light-clr: #ffffff;
+  --main-dark-clr: #1d1d3d;
+  --dark-clr: #a1abbb;
+  --accent-clr: #2a23a3;
+
+  --add-clr-1: #2d3953b9;
+  --add-clr-2: #0a0d3bb9;
+  --add-clr-3: #07424d80;
+
+  --brd-radius: 4px;
+  --default-gap: 15px;
+
+  --default-animation: 350ms ease-in-out;
+}
+
+*,
+::after,
+::before {
   margin: 0;
+  padding: 0;
+}
+
+body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
