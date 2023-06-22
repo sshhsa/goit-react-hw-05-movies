@@ -1,17 +1,23 @@
+import { NavLink } from 'react-router-dom';
+
 import css from './AdditionInformation.module.css';
-import Cast from 'components/Cast/Cast';
-import Reviews from 'components/MoviesPage/Reviews/Reviews';
+import Cast from './Cast/Cast';
+import Reviews from './Reviews/Reviews';
 
 function AdditionInformation() {
   return (
     <div className={css.containerAddInfo}>
-      <h2 classNAme={css.chapterAddInfo}>Addition Information</h2>
+      <h2 className={css.chapterAddInfo}>Addition Information</h2>
       <ul className={css.listAddInfo}>
         <li className={css.listItem}>
-          <Cast />
+          <NavLink to="../cast" className={css.movieLink}>
+            <Cast />
+          </NavLink>
         </li>
         <li className={css.listItem}>
-          <Reviews />
+          <NavLink to="../reviews" className={css.movieLink}>
+            <Reviews />
+          </NavLink>
         </li>
       </ul>
     </div>

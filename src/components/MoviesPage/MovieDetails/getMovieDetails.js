@@ -6,14 +6,14 @@ async function fetchGetMovieDetails(movie_id) {
     const url = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${API_KEY}`;
     const response = await axios.get(url);
 
-    if (response.data.length === 0) {
+    if (response.data) {
+      return response.data;
+    } else {
       throw new Error('Backend is empty by this request');
     }
-
-    return response.results;
   } catch (error) {
     console.log(error);
-    return [];
+    return null;
   }
 }
 
