@@ -1,0 +1,55 @@
+.boxReviews {
+    margin-left: var(--default-gap);
+    margin-right: var(--default-gap);
+}
+
+.listReviews {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    gap: var(--default-gap);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--default-gap);
+    padding: 5px;
+    max-width: 1200px;
+
+    border-radius: var(--brd-radius);
+    background-color: var(--add-clr-3);
+}
+
+.itemReviews {
+    padding: var(--default-gap);
+
+    border-radius: var(--brd-radius);
+
+    background-color: var(--add-clr-1);
+}
+
+.labelReviews {
+    color: var(--main-light-clr);
+}
+
+.accentText {
+    color: var(--accent-clr);
+}
+
+.contentReviews {
+    margin-top: var(--default-gap);
+    color: var(--add-clr-4);
+}
+
+.messageEmptyReviews {
+    margin: var(--default-gap) auto;
+    padding: var(--default-gap);
+    width: 300px;
+
+    font-size: 18px;
+    text-align: center;
+    border-radius: var(--brd-radius);
+
+    color: var(--main-dark-clr);
+    background-color: var(--accent-clr);
+}

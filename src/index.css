@@ -2,11 +2,13 @@
   --main-light-clr: #ffffff;
   --main-dark-clr: #1d1d3d;
   --dark-clr: #a1abbb;
-  --accent-clr: #3d37b6;
+  --accent-clr: #f5b221;
 
   --add-clr-1: #2d3953b9;
   --add-clr-2: #0a0d3bb9;
   --add-clr-3: #07424d80;
+  --add-clr-4: #e6f3ffc5;
+  --add-clr-5: rgba(19, 19, 70, 0.5);
 
   --brd-radius: 4px;
   --default-gap: 15px;
@@ -29,7 +31,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-image: radial-gradient(circle at center, var(--main-dark-clr), var(--dark-clr), var(--main-light-clr));
+  background-image: linear-gradient(var(--add-clr-1), var(--add-clr-1));
 }
 
 code {

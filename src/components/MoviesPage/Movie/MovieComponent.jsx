@@ -56,26 +56,28 @@ function MovieComponent() {
           value={inputQuery}
           name="inputQuery"
           onChange={updateQueryString}
-          placeholder="Let's search for the movie by its title"
+          placeholder="Search movie"
+          className={css.inputSearch}
         />
         <button type="submit" className={css.buttonSearch}>
           <GoSearch className={css.iconSearch} />
         </button>
       </form>
-
-      <ul className={css.listMoviesBySearch}>
-        {filteredQuery.map(query => (
-          <li key={query.id}>
-            <NavLink
-              to={`/movies/${query.id}`}
-              state={{ from: location }}
-              className={css.movieLink}
-            >
-              {query.title}
-            </NavLink>
-          </li>
-        ))}
-      </ul>
+      {filteredQuery.length > 0 && (
+        <ul className={css.listMovies}>
+          {filteredQuery.map(query => (
+            <li key={query.id}>
+              <NavLink
+                to={`/movies/${query.id}`}
+                state={{ from: location }}
+                className={css.movieNavLink}
+              >
+                {query.title}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

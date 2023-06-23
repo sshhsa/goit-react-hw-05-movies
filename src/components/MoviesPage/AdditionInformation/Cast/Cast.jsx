@@ -18,21 +18,29 @@ function Cast() {
   }, [movie_id]);
 
   return (
-    <ul className={css.castList}>
-      {casts.map(
-        cast =>
-          cast.profile_path && (
-            <li key={cast.id} className={css.castListItem}>
-              <img
-                src={`https://image.tmdb.org/t/p/w300/${cast.profile_path}`}
-                alt={cast.name}
-                className={css.imageCast}
-              />
-              <h3 className={css.castItemName}>{cast.name}</h3>
-            </li>
-          )
+    <div className={css.boxReviews}>
+      {casts.length === 0 ? (
+        <p className={css.messageEmptyCast}>
+          We don`t have any cast for this movie
+        </p>
+      ) : (
+        <ul className={css.castList}>
+          {casts.map(
+            cast =>
+              cast.profile_path && (
+                <li key={cast.id} className={css.castListItem}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w300/${cast.profile_path}`}
+                    alt={cast.name}
+                    className={css.imageCast}
+                  />
+                  <h3 className={css.castItemName}>{cast.name}</h3>
+                </li>
+              )
+          )}
+        </ul>
       )}
-    </ul>
+    </div>
   );
 }
 

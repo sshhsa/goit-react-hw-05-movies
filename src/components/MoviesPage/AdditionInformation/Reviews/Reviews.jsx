@@ -18,20 +18,25 @@ function Reviews() {
   }, [movie_id]);
 
   return (
-    <ul className={css.reviews}>
-      {reviews ? (
-        reviews.map(review => (
-          <li key={review.id}>
-            <h3>Author: {review.author}</h3>
-            <p>{review.content}</p>
-          </li>
-        ))
-      ) : (
+    <div className={css.boxReviews}>
+      {reviews.length === 0 ? (
         <p className={css.messageEmptyReviews}>
           We don`t have any reviews for this movie
         </p>
+      ) : (
+        <ul className={css.listReviews}>
+          {reviews.map(review => (
+            <li key={review.id} className={css.itemReviews}>
+              <h3 className={css.labelReviews}>
+                <span className={css.accentText}>Author: </span>
+                {review.author}
+              </h3>
+              <p className={css.contentReviews}>{review.content}</p>
+            </li>
+          ))}
+        </ul>
       )}
-    </ul>
+    </div>
   );
 }
 

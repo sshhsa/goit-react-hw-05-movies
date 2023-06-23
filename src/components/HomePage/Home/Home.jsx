@@ -22,7 +22,7 @@ function HomeComponent() {
       <h1 className={css.labelTrending}>Trending movies</h1>
       <ul className={css.trendingListMovies}>
         {movies.map(movie => (
-          <li key={movie.id} className={css.trendingListItem}>
+          <li key={movie.id}>
             <NavLink
               to={`/movies/${movie.id}`}
               state={{ from: location }}
