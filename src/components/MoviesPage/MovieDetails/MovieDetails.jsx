@@ -72,8 +72,24 @@ function MovieDetails() {
           </div>
           <div className={css.addInfoBox}>
             <h2 className={css.labelMovie}>Addition information</h2>
-            <NavLink to={`/movies/${movie_id}/cast`}>Cast</NavLink>
-            <NavLink to={`/movies/${movie_id}/reviews`}>Review</NavLink>
+            <ul className={css.AddInfoList}>
+              <li className={css.AddInfoItem}>
+                <NavLink
+                  to={`/movies/${movie_id}/cast`}
+                  className={css.addInfoNavLink}
+                >
+                  Cast
+                </NavLink>
+              </li>
+              <li className={css.AddInfoItem}>
+                <NavLink
+                  to={`/movies/${movie_id}/reviews`}
+                  className={css.addInfoNavLink}
+                >
+                  Review
+                </NavLink>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

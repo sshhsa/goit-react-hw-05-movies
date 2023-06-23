@@ -3,6 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 
 import fetchTrendingMovies from 'components/HomePage/Home/trendingMovies';
 import Loader from 'components/Loader/Loader';
+import Chapter from 'components/Chapter/Chapter';
 import css from './Home.module.css';
 
 function HomeComponent() {
@@ -20,7 +21,7 @@ function HomeComponent() {
 
   return (
     <div className={css.boxTrending}>
-      <h1 className={css.labelTrending}>Trending movies</h1>
+      <Chapter chapter="Trending movies" />
       {movies.length === 0 ? (
         <Loader />
       ) : (

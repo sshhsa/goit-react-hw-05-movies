@@ -1,14 +1,6 @@
 .boxTrending {
     margin: var(--default-gap);
-
     background-color: transparent;
-}
-
-.labelTrending {
-    margin-bottom: 10px;
-
-    text-align: center;
-    color: var(--main-dark-clr);
 }
 
 .trendingListMovies {
