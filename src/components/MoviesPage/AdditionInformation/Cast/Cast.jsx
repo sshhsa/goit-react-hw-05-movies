@@ -8,11 +8,13 @@ import css from './Cast.module.css';
 function Cast() {
   const { movie_id } = useParams();
   const [casts, setCasts] = useState([]);
+  const [isLoadingCast, setIsLoadingCast] = useState(false);
 
   useEffect(() => {
     const fetchDataCast = async () => {
       const fetchedCasts = await fetchGetMovieCredits(movie_id);
       setCasts(fetchedCasts);
+      setIsLoadingCast(true);
     };
 
     fetchDataCast();
@@ -20,14 +22,12 @@ function Cast() {
 
   return (
     <div className={css.boxReviews}>
-      {casts.length === 0 ? (
-        <>
-          {<Loader /> ?? (
-            <p className={css.messageEmptyCast}>
-              We don`t have any cast for this movie
-            </p>
-          )}
-        </>
+      {!isLoadingCast ? (
+        <Loader />
+      ) : casts.length === 0 ? (
+        <p className={css.messageEmptyReviews}>
+          We don't have any cast for this movie
+        </p>
       ) : (
         <ul className={css.castList}>
           {casts.map(

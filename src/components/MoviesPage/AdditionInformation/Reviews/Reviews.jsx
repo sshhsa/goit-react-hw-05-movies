@@ -8,11 +8,13 @@ import Loader from 'components/Loader/Loader';
 function Reviews() {
   const { movie_id } = useParams();
   const [reviews, setReviews] = useState([]);
+  const [isLoadingReviews, setIsLoadingReviews] = useState(false);
 
   useEffect(() => {
     const fetchDataReviews = async () => {
       const fetchedReviews = await fetchGetMovieReviews(movie_id);
       setReviews(fetchedReviews);
+      setIsLoadingReviews(true);
     };
 
     fetchDataReviews();
@@ -20,14 +22,12 @@ function Reviews() {
 
   return (
     <div className={css.boxReviews}>
-      {reviews.length === 0 ? (
-        <>
-          {<Loader /> ?? (
-            <p className={css.messageEmptyReviews}>
-              We don`t have any reviews for this movie
-            </p>
-          )}
-        </>
+      {!isLoadingReviews ? (
+        <Loader />
+      ) : reviews.length === 0 ? (
+        <p className={css.messageEmptyReviews}>
+          We don't have any reviews for this movie
+        </p>
       ) : (
         <ul className={css.listReviews}>
           {reviews.map(review => (

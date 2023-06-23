@@ -1,15 +1,19 @@
 import { NavLink, useSearchParams, useLocation } from 'react-router-dom';
 import { React, useState, useEffect } from 'react';
 
-import css from './Movie.module.css';
 import fetchSearchMovies from './searchMovies';
 import { GoSearch } from 'react-icons/go';
+import Loader from 'components/Loader/Loader';
+
+import css from './Movie.module.css';
 
 function MovieComponent() {
   const [results, setResults] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const inputQuery = searchParams.get('query') ?? '';
   const location = useLocation();
+  const [isLoadingMovieSearch, setIsLoadingMovieSearch] = useState(false);
+  const [isSearchCompleted, setIsSearchCompleted] = useState(false);
 
   const updateQueryString = event => {
     const queryIdValue = event.target.value;
@@ -25,8 +29,10 @@ function MovieComponent() {
     const fetchSearchData = async () => {
       const fetchedSearchData = await fetchSearchMovies(inputQuery);
       setResults(fetchedSearchData);
+      setIsSearchCompleted(true);
     };
     fetchSearchData();
+    setIsLoadingMovieSearch(true);
   }, [inputQuery]);
 
   const handleSubmitMovie = event => {
@@ -48,6 +54,9 @@ function MovieComponent() {
     results.length > 0
       ? results.filter(query => query.title.includes(inputQuery))
       : [];
+
+  const isQueryEmpty = inputQuery === '';
+
   return (
     <div className={css.boxMovie}>
       <form onSubmit={handleSubmitMovie} className={css.formSearchMovie}>
@@ -59,11 +68,18 @@ function MovieComponent() {
           placeholder="Search movie"
           className={css.inputSearch}
         />
-        <button type="submit" className={css.buttonSearch}>
+        <button
+          type="submit"
+          className={css.buttonSearch}
+          disabled={isQueryEmpty}
+        >
           <GoSearch className={css.iconSearch} />
         </button>
       </form>
-      {filteredQuery.length > 0 && (
+
+      {isLoadingMovieSearch && !isSearchCompleted ? (
+        <Loader />
+      ) : filteredQuery.length > 0 ? (
         <ul className={css.listMovies}>
           {filteredQuery.map(query => (
             <li key={query.id}>
@@ -77,7 +93,11 @@ function MovieComponent() {
             </li>
           ))}
         </ul>
-      )}
+      ) : isSearchCompleted ? (
+        <p className={css.messageEmptyReviews}>
+          We don't have any results for this movie
+        </p>
+      ) : null}
     </div>
   );
 }

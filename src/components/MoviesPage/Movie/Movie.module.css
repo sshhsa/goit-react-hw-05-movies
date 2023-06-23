@@ -40,6 +40,7 @@
     border-top-right-radius: var(--brd-radius);
     border-bottom-right-radius: var(--brd-radius);
     outline: none;
+    cursor: pointer;
 
     background-color: var(--main-light-clr);
 }
