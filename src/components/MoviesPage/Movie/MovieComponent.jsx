@@ -1,7 +1,9 @@
 import { NavLink, useSearchParams, useLocation } from 'react-router-dom';
 import { React, useState, useEffect } from 'react';
+
 import css from './Movie.module.css';
 import fetchSearchMovies from './searchMovies';
+import { GoSearch } from 'react-icons/go';
 
 function MovieComponent() {
   const [results, setResults] = useState([]);
@@ -56,8 +58,8 @@ function MovieComponent() {
           onChange={updateQueryString}
           placeholder="Let's search for the movie by its title"
         />
-        <button className={css.buttonSearchMovie} type="submit">
-          Search
+        <button type="submit" className={css.buttonSearch}>
+          <GoSearch className={css.iconSearch} />
         </button>
       </form>
 

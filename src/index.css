@@ -2,7 +2,7 @@
   --main-light-clr: #ffffff;
   --main-dark-clr: #1d1d3d;
   --dark-clr: #a1abbb;
-  --accent-clr: #2a23a3;
+  --accent-clr: #3d37b6;
 
   --add-clr-1: #2d3953b9;
   --add-clr-2: #0a0d3bb9;
@@ -10,6 +10,7 @@
 
   --brd-radius: 4px;
   --default-gap: 15px;
+  --default-width: 200px;
 
   --default-animation: 350ms ease-in-out;
 }
@@ -27,6 +28,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-image: radial-gradient(circle at center, var(--main-dark-clr), var(--dark-clr), var(--main-light-clr));
 }
 
 code {

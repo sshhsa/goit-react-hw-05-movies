@@ -19,16 +19,19 @@ function Cast() {
 
   return (
     <ul className={css.castList}>
-      {casts.map(cast => (
-        <li key={cast.id}>
-          <img
-            src={`https://image.tmdb.org/t/p/w300/${cast.profile_path}`}
-            alt={cast.name}
-            className={css.imageCast}
-          />
-          <h3>{cast.name}</h3>
-        </li>
-      ))}
+      {casts.map(
+        cast =>
+          cast.profile_path && (
+            <li key={cast.id} className={css.castListItem}>
+              <img
+                src={`https://image.tmdb.org/t/p/w300/${cast.profile_path}`}
+                alt={cast.name}
+                className={css.imageCast}
+              />
+              <h3 className={css.castItemName}>{cast.name}</h3>
+            </li>
+          )
+      )}
     </ul>
   );
 }

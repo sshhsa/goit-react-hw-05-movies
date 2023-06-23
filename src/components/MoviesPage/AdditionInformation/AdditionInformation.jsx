@@ -8,12 +8,12 @@ function AdditionInformation() {
   return (
     <ul className={css.listAddInfo}>
       <li className={css.listItem}>
-        <NavLink to="../cast" className={css.movieLink}>
+        <NavLink to="../cast" className={css.movieNavLink}>
           <Cast />
         </NavLink>
       </li>
       <li className={css.listItem}>
-        <NavLink to="../reviews" className={css.movieLink}>
+        <NavLink to="../reviews" className={css.movieNavLink}>
           <Reviews />
         </NavLink>
       </li>

@@ -38,12 +38,25 @@
     border-radius: var(--brd-radius);
 }
 
+@media screen and (max-width: 500px) {
+    .imageMovieDetails {
+        width: 300px;
+    }
+}
+
 .movieTextInfo {
     padding: var(--default-gap);
-    max-width: 700px;
+    max-width: 600px;
 
     color: var(--main-light-clr);
     background-color: var(--add-clr-3);
+}
+
+@media screen and (max-width: 1100px) {
+    .movieTextInfo {
+        margin-top: var(--default-gap);
+        margin-left: var(--default-gap);
+    }
 }
 
 .labelMovieDetails {
