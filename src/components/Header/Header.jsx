@@ -1,26 +1,26 @@
-import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 import css from './Header.module.css';
 
 function Header() {
   const [activeNavLink, setActiveNavLink] = useState('');
+  const location = useLocation();
 
-  const handleClickActiveNavLink = buttonId => {
-    setActiveNavLink(buttonId);
-  };
+  useEffect(() => {
+    const currentPath = location.pathname;
+    setActiveNavLink(currentPath === '/' ? 'home' : '');
+  }, [location]);
+
   return (
     <header>
       <ul className={css.headerList}>
         <li className={css.headerListItem}>
           <NavLink
-            to="home"
+            to="/"
             className={`${css.headerLink} ${
               activeNavLink === 'home' ? css.activeNavLink : ''
             }`}
-            onClick={() => {
-              handleClickActiveNavLink('home');
-            }}
           >
             Home
           </NavLink>
@@ -31,9 +31,6 @@ function Header() {
             className={`${css.headerLink} ${
               activeNavLink === 'movies' ? css.activeNavLink : ''
             }`}
-            onClick={() => {
-              handleClickActiveNavLink('movies');
-            }}
           >
             Movies
           </NavLink>

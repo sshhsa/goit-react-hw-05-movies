@@ -38,7 +38,7 @@ function MovieDetails() {
       <div className={css.movieDetails}>
         <div className={css.movieImageButton}>
           <NavLink
-            to={location.state?.from ?? '/home'}
+            to={location.state?.from ?? '/'}
             className={css.buttonGoBack}
           >
             Go back
