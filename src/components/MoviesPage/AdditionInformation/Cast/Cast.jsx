@@ -25,7 +25,7 @@ function Cast() {
       {!isLoadingCast ? (
         <Loader />
       ) : casts.length === 0 ? (
-        <p className={css.messageEmptyReviews}>
+        <p className={css.messageEmptyCast}>
           We don't have any cast for this movie
         </p>
       ) : (

@@ -94,7 +94,7 @@ function MovieComponent() {
           ))}
         </ul>
       ) : isSearchCompleted ? (
-        <p className={css.messageEmptyReviews}>
+        <p className={css.messageEmptyResults}>
           We don't have any results for this movie
         </p>
       ) : null}

@@ -9,7 +9,7 @@ function Header() {
 
   useEffect(() => {
     const currentPath = location.pathname;
-    setActiveNavLink(currentPath === '/' ? 'home' : '');
+    setActiveNavLink(currentPath.includes('/movies') ? 'movies' : 'home');
   }, [location]);
 
   return (
@@ -27,7 +27,7 @@ function Header() {
         </li>
         <li className={css.headerListItem}>
           <NavLink
-            to="movies"
+            to="/movies"
             className={`${css.headerLink} ${
               activeNavLink === 'movies' ? css.activeNavLink : ''
             }`}
