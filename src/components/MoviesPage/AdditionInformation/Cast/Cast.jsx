@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import fetchGetMovieCredits from './getMovieCredits';
+import Loader from 'components/Loader/Loader';
 import css from './Cast.module.css';
 
 function Cast() {
@@ -20,9 +21,13 @@ function Cast() {
   return (
     <div className={css.boxReviews}>
       {casts.length === 0 ? (
-        <p className={css.messageEmptyCast}>
-          We don`t have any cast for this movie
-        </p>
+        <>
+          {<Loader /> ?? (
+            <p className={css.messageEmptyCast}>
+              We don`t have any cast for this movie
+            </p>
+          )}
+        </>
       ) : (
         <ul className={css.castList}>
           {casts.map(

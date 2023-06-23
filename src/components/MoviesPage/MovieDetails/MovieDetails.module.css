@@ -1,3 +1,5 @@
+@import '../../index.css';
+
 .movieDetails {
     display: flex;
     justify-content: space-around;

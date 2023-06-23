@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 
 import fetchTrendingMovies from 'components/HomePage/Home/trendingMovies';
+import Loader from 'components/Loader/Loader';
 import css from './Home.module.css';
 
 function HomeComponent() {
@@ -20,19 +21,23 @@ function HomeComponent() {
   return (
     <div className={css.boxTrending}>
       <h1 className={css.labelTrending}>Trending movies</h1>
-      <ul className={css.trendingListMovies}>
-        {movies.map(movie => (
-          <li key={movie.id}>
-            <NavLink
-              to={`/movies/${movie.id}`}
-              state={{ from: location }}
-              className={css.movieLink}
-            >
-              {movie.title}
-            </NavLink>
-          </li>
-        ))}
-      </ul>
+      {movies.length === 0 ? (
+        <Loader />
+      ) : (
+        <ul className={css.trendingListMovies}>
+          {movies.map(movie => (
+            <li key={movie.id}>
+              <NavLink
+                to={`/movies/${movie.id}`}
+                state={{ from: location }}
+                className={css.movieLink}
+              >
+                {movie.title}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { useEffect, useState, Suspense } from 'react';
 import { Outlet, NavLink, useParams, useLocation } from 'react-router-dom';
 
 import fetchGetMovieDetails from './getMovieDetails';
+import Loader from 'components/Loader/Loader';
 import css from './MovieDetails.module.css';
 
 function MovieDetails() {
@@ -24,7 +25,7 @@ function MovieDetails() {
   }, [movie_id]);
 
   if (!movieDetails) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   const { poster_path, original_title, popularity, tagline, overview } =
@@ -57,8 +58,8 @@ function MovieDetails() {
             )}
             {popularity && (
               <span>
-                Popularity:{' '}
-                <span className={css.accentText}>{popularity.toFixed(1)}</span>
+                Popularity:
+                <span className={css.accentText}> {popularity.toFixed(1)}</span>
               </span>
             )}
             {tagline && <p>{tagline}</p>}
@@ -77,7 +78,7 @@ function MovieDetails() {
         </div>
       </div>
       <div className={css.contentAddInfo}>
-        <Suspense fallback={<div>Loading page...</div>}>
+        <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
       </div>

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import css from './Reviews.module.css';
 import fetchGetMovieReviews from './getMovieReviews';
+import Loader from 'components/Loader/Loader';
 
 function Reviews() {
   const { movie_id } = useParams();
@@ -20,9 +21,13 @@ function Reviews() {
   return (
     <div className={css.boxReviews}>
       {reviews.length === 0 ? (
-        <p className={css.messageEmptyReviews}>
-          We don`t have any reviews for this movie
-        </p>
+        <>
+          {<Loader /> ?? (
+            <p className={css.messageEmptyReviews}>
+              We don`t have any reviews for this movie
+            </p>
+          )}
+        </>
       ) : (
         <ul className={css.listReviews}>
           {reviews.map(review => (
