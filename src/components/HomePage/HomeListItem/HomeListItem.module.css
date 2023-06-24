@@ -1,0 +1,19 @@
+.homeListLink {
+    padding: 5px 10px;
+
+    font-size: 18px;
+    text-decoration: none;
+
+    border-radius: var(--brd-radius);
+
+    color: var(--main-light-clr);
+    background-color: var(--add-clr-5);
+
+    transition: color, background-color var(--default-animation);
+}
+
+.homeListLink:hover,
+.homeListLink:focus {
+    color: var(--accent-clr);
+    background-color: var(--main-dark-clr);
+}
