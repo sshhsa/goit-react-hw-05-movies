@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 
 import fetchGetMovieCredits from './getMovieCredits';
 import Loader from 'components/Loader/Loader';
+import Message from 'components/Message/Message';
+
 import css from './Cast.module.css';
 
 function Cast() {
@@ -25,9 +27,7 @@ function Cast() {
       {!isLoadingCast ? (
         <Loader />
       ) : casts.length === 0 ? (
-        <p className={css.messageEmptyCast}>
-          We don't have any cast for this movie
-        </p>
+        <Message message="We don't have any cast for this movie" />
       ) : (
         <ul className={css.castList}>
           {casts.map(

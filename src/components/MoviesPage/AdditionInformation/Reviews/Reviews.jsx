@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-import css from './Reviews.module.css';
 import fetchGetMovieReviews from './getMovieReviews';
 import Loader from 'components/Loader/Loader';
+import Message from 'components/Message/Message';
+
+import css from './Reviews.module.css';
 
 function Reviews() {
   const { movie_id } = useParams();
@@ -25,9 +27,7 @@ function Reviews() {
       {!isLoadingReviews ? (
         <Loader />
       ) : reviews.length === 0 ? (
-        <p className={css.messageEmptyReviews}>
-          We don't have any reviews for this movie
-        </p>
+        <Message message="We don't have any reviews for this movie" />
       ) : (
         <ul className={css.listReviews}>
           {reviews.map(review => (

@@ -4,6 +4,7 @@ import { React, useState, useEffect } from 'react';
 import fetchSearchMovies from './searchMovies';
 import { GoSearch } from 'react-icons/go';
 import Loader from 'components/Loader/Loader';
+import Message from 'components/Message/Message';
 
 import css from './Movie.module.css';
 
@@ -94,9 +95,7 @@ function MovieComponent() {
           ))}
         </ul>
       ) : isSearchCompleted ? (
-        <p className={css.messageEmptyResults}>
-          We don't have any results for this movie
-        </p>
+        <Message message="We don't have any results for this movie" />
       ) : null}
     </div>
   );
