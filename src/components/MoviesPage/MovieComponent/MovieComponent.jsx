@@ -1,18 +1,19 @@
-import { NavLink, useSearchParams, useLocation } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { React, useState, useEffect } from 'react';
+
+import MovieList from './MovieList/MovieList';
+
+import css from './MovieComponent.module.css';
 
 import fetchSearchMovies from './searchMovies';
 import { GoSearch } from 'react-icons/go';
 import Loader from 'components/Loader/Loader';
 import Message from 'components/Message/Message';
 
-import css from './MovieComponent.module.css';
-
 function MovieComponent() {
   const [results, setResults] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const inputQuery = searchParams.get('query') ?? '';
-  const location = useLocation();
   const [isLoadingMovieSearch, setIsLoadingMovieSearch] = useState(false);
   const [isSearchCompleted, setIsSearchCompleted] = useState(false);
 
@@ -81,19 +82,7 @@ function MovieComponent() {
       {isLoadingMovieSearch && !isSearchCompleted ? (
         <Loader />
       ) : filteredQuery.length > 0 ? (
-        <ul className={css.listMovies}>
-          {filteredQuery.map(query => (
-            <li key={query.id}>
-              <NavLink
-                to={`/movies/${query.id}`}
-                state={{ from: location }}
-                className={css.movieNavLink}
-              >
-                {query.title}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
+        <MovieList filteredQuery={filteredQuery} />
       ) : isSearchCompleted ? (
         <Message message="We don't have any results for this movie" />
       ) : null}

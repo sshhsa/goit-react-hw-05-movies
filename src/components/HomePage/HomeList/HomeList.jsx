@@ -1,6 +1,6 @@
-import HomeListItem from '../HomeListItem/HomeListItem';
 import PropTypes from 'prop-types';
 
+import HomeListItem from '../HomeListItem/HomeListItem';
 import css from './HomeList.module.css';
 
 function HomeList({ movies }) {
