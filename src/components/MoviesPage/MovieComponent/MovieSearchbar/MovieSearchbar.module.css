@@ -1,0 +1,90 @@
+.formSearchMovie {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: hsl(0, 0%, 100%);
+    position: relative;
+    border-radius: var(--brd-radius);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .01);
+
+    &::after {
+        position: absolute;
+        content: "";
+        top: 15px;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        height: 100%;
+        width: 100%;
+        transform: scale(0.9) translateZ(0);
+        filter: blur(15px);
+        background: linear-gradient(to left,
+                var(--add-clr-3),
+                var(--add-clr-2),
+                var(--add-clr-1),
+                var(--add-clr-3),
+                var(--add-clr-2),
+                var(--add-clr-1));
+        background-size: 200% 200%;
+        animation: animateGlow 1.25s linear infinite;
+    }
+}
+
+@keyframes animateGlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+.inputSearch {
+    margin-left: var(--default-gap);
+    margin-right: var(--default-gap);
+    padding: 10px 30px;
+    width: 1050px;
+
+    font-size: 18px;
+
+    border: none;
+    border-top-left-radius: var(--brd-radius);
+    border-bottom-left-radius: var(--brd-radius);
+
+    color: var(--add-clr-1);
+}
+
+@media screen and (max-width: 500px) {
+    .inputSearch {
+        width: 200px;
+    }
+}
+
+.buttonSearch {
+    padding: 7px;
+
+    border: none;
+    border-top-right-radius: var(--brd-radius);
+    border-bottom-right-radius: var(--brd-radius);
+    outline: none;
+    cursor: pointer;
+
+    background-color: var(--main-light-clr);
+}
+
+.iconSearch {
+    width: 25px;
+    height: 25px;
+
+    color: var(--main-dark-clr);
+    background-color: var(--main-light-clr);
+
+    transition: color var(--default-animation);
+}
+
+.buttonSearch:hover .iconSearch,
+.buttonSearch:focus .iconSearch {
+    color: var(--accent-clr);
+}
