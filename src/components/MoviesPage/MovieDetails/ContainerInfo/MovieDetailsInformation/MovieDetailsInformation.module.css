@@ -1,0 +1,23 @@
+.labelMovieDetails {
+    font-size: 30px;
+    color: var(--main-dark-clr);
+}
+
+.accentText {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--accent-clr);
+}
+
+.containerOverview {
+    margin-top: var(--default-gap);
+}
+
+.labelMovie {
+    font-size: 26px;
+    color: var(--add-clr-2);
+}
+
+.textMovieDetails {
+    font-size: 18px;
+}

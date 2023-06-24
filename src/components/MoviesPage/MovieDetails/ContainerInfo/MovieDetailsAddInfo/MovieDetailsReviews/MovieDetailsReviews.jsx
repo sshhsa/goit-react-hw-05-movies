@@ -5,7 +5,7 @@ import fetchGetMovieReviews from './getMovieReviews';
 import Loader from 'components/Loader/Loader';
 import Message from 'components/Message/Message';
 
-import css from './Reviews.module.css';
+import css from './MovieDetailsReviews.module.css';
 
 function Reviews() {
   const { movie_id } = useParams();

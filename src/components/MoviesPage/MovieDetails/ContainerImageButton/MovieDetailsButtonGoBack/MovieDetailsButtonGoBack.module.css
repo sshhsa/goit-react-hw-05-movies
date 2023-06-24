@@ -1,0 +1,22 @@
+.buttonGoBack,
+.addInfoNavLink {
+    padding: 5px 10px;
+
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--brd-radius);
+
+    color: var(--accent-clr);
+    background-color: var(--main-dark-clr);
+
+    transition: color, background-color var(--default-animation);
+}
+
+.buttonGoBack:hover,
+.addInfoNavLink:hover,
+.buttonGoBack:focus,
+.addInfoNavLink:focus {
+    color: var(--main-dark-clr);
+    background-color: transparent;
+}

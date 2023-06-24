@@ -4,49 +4,9 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-
     flex-wrap: wrap;
 
     margin: 20px 10px;
-}
-
-.buttonGoBack,
-.addInfoNavLink {
-    padding: 5px 10px;
-
-    font-size: 18px;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: var(--brd-radius);
-
-    color: var(--accent-clr);
-    background-color: var(--main-dark-clr);
-
-    transition: color, background-color var(--default-animation);
-}
-
-.buttonGoBack:hover,
-.addInfoNavLink:hover,
-.buttonGoBack:focus,
-.addInfoNavLink:focus {
-    color: var(--main-dark-clr);
-    background-color: transparent;
-}
-
-.imageMovieDetails {
-    display: block;
-    width: 400px;
-    height: auto;
-
-    margin-top: var(--default-gap);
-
-    border-radius: var(--brd-radius);
-}
-
-@media screen and (max-width: 500px) {
-    .imageMovieDetails {
-        width: 300px;
-    }
 }
 
 .movieTextInfo {
@@ -62,28 +22,4 @@
         margin-top: var(--default-gap);
         margin-left: var(--default-gap);
     }
-}
-
-.labelMovieDetails {
-    color: var(--main-dark-clr);
-}
-
-.accentText {
-    font-size: 17px;
-    font-weight: 600;
-    color: var(--accent-clr);
-}
-
-.labelMovie {
-    color: var(--add-clr-2);
-}
-
-.AddInfoList {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    margin: var(--default-gap) 0px 0px 0px;
-
-    width: 140px;
 }

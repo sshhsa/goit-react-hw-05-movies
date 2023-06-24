@@ -1,4 +1,4 @@
-import MovieComponent from 'components/MoviesPage/Movie/MovieComponent';
+import MovieComponent from 'components/MoviesPage/MovieComponent/MovieComponent';
 function Movies() {
   return <MovieComponent />;
 }

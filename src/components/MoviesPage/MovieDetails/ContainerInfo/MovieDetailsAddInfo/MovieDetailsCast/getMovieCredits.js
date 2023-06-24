@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_KEY } from '../../../../services/apiKey';
+import { API_KEY } from '../../../../../../services/apiKey';
 
 async function fetchGetMovieCredits(movie_id) {
   try {

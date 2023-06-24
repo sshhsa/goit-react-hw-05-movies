@@ -1,0 +1,14 @@
+.imageMovieDetails {
+    display: block;
+    margin-top: var(--default-gap);
+
+    width: 400px;
+    height: auto;
+    border-radius: var(--brd-radius);
+}
+
+@media screen and (max-width: 500px) {
+    .imageMovieDetails {
+        width: 300px;
+    }
+}

@@ -5,7 +5,7 @@ import fetchGetMovieCredits from './getMovieCredits';
 import Loader from 'components/Loader/Loader';
 import Message from 'components/Message/Message';
 
-import css from './Cast.module.css';
+import css from './MovieDetailsCast.module.css';
 
 function Cast() {
   const { movie_id } = useParams();

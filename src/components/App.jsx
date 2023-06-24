@@ -8,9 +8,15 @@ import NotFound from 'pages/NotFound';
 
 import MovieDetails from './MoviesPage/MovieDetails/MovieDetails';
 
-const Cast = lazy(() => import('./MoviesPage/AdditionInformation/Cast/Cast'));
+const Cast = lazy(() =>
+  import(
+    './MoviesPage/MovieDetails/ContainerInfo/MovieDetailsAddInfo/MovieDetailsCast/MovieDetailsCast'
+  )
+);
 const Reviews = lazy(() =>
-  import('./MoviesPage/AdditionInformation/Reviews/Reviews')
+  import(
+    './MoviesPage/MovieDetails/ContainerInfo/MovieDetailsAddInfo/MovieDetailsReviews/MovieDetailsReviews'
+  )
 );
 
 function App() {

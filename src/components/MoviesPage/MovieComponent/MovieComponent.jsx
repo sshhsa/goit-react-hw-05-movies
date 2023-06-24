@@ -6,7 +6,7 @@ import { GoSearch } from 'react-icons/go';
 import Loader from 'components/Loader/Loader';
 import Message from 'components/Message/Message';
 
-import css from './Movie.module.css';
+import css from './MovieComponent.module.css';
 
 function MovieComponent() {
   const [results, setResults] = useState([]);

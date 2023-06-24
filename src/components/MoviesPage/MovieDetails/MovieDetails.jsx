@@ -1,5 +1,10 @@
 import { useEffect, useState, Suspense } from 'react';
-import { Outlet, NavLink, useParams, useLocation } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
+
+import MovieDetailsImage from './ContainerImageButton/MovieDetailsImage/MovieDetailsImage';
+import MovieDetailsButtonGoBack from './ContainerImageButton/MovieDetailsButtonGoBack/MovieDetailsButtonGoBack';
+import MovieDetailsInformation from './ContainerInfo/MovieDetailsInformation/MovieDetailsInformation';
+import MovieDetailsAddInfo from './ContainerInfo/MovieDetailsAddInfo/MovieDetailsAddInfo';
 
 import fetchGetMovieDetails from './getMovieDetails';
 import Loader from 'components/Loader/Loader';
@@ -8,8 +13,6 @@ import css from './MovieDetails.module.css';
 function MovieDetails() {
   const { movie_id } = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
-
-  const location = useLocation();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,66 +34,26 @@ function MovieDetails() {
   const { poster_path, original_title, popularity, tagline, overview } =
     movieDetails;
 
-  const imageUrl = `https://image.tmdb.org/t/p/w400/${poster_path}`;
-
   return (
-    <div>
+    <>
       <div className={css.movieDetails}>
         <div className={css.movieImageButton}>
-          <NavLink
-            to={location.state?.from ?? '/'}
-            className={css.buttonGoBack}
-          >
-            Go back
-          </NavLink>
+          <MovieDetailsButtonGoBack />
           {poster_path && (
-            <img
-              src={imageUrl}
-              alt={original_title}
-              className={css.imageMovieDetails}
+            <MovieDetailsImage
+              poster_path={poster_path}
+              original_title={original_title}
             />
           )}
         </div>
         <div className={css.movieTextInfo}>
-          <div className={css.containerInfo}>
-            {original_title && (
-              <h1 className={css.labelMovieDetails}>{original_title}</h1>
-            )}
-            {popularity && (
-              <span>
-                Popularity:
-                <span className={css.accentText}> {popularity.toFixed(1)}</span>
-              </span>
-            )}
-            {tagline && <p>{tagline}</p>}
-            {overview && (
-              <>
-                <h2 className={css.labelMovie}>Overview</h2>
-                <p className={css.textMovieDetails}>{overview}</p>
-              </>
-            )}
-          </div>
-          <div className={css.addInfoBox}>
-            <h2 className={css.labelMovie}>Addition information</h2>
-            <ul className={css.AddInfoList}>
-              <li className={css.AddInfoItem}>
-                <NavLink
-                  to={`/movies/${movie_id}/cast`}
-                  className={css.addInfoNavLink}
-                >
-                  Cast
-                </NavLink>
-              </li>
-              <li className={css.AddInfoItem}>
-                <NavLink
-                  to={`/movies/${movie_id}/reviews`}
-                  className={css.addInfoNavLink}
-                >
-                  Review
-                </NavLink>
-              </li>
-            </ul>
-          </div>
+          <MovieDetailsInformation
+            original_title={original_title}
+            popularity={popularity}
+            tagline={tagline}
+            overview={overview}
+          />
+          <MovieDetailsAddInfo movie_id={movie_id} />
         </div>
       </div>
       <div className={css.contentAddInfo}>
@@ -98,7 +61,7 @@ function MovieDetails() {
           <Outlet />
         </Suspense>
       </div>
-    </div>
+    </>
   );
 }
 

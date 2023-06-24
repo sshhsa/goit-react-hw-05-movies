@@ -1,0 +1,37 @@
+.containerAddInfo {
+    margin-top: var(--default-gap);
+}
+
+.labelAddInfo {
+    font-size: 26px;
+    color: var(--add-clr-2);
+}
+
+.addInfoList {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    margin: var(--default-gap) 0px 0px 0px;
+    width: 140px;
+}
+
+.addInfoNavLink {
+    padding: 5px 10px;
+
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--brd-radius);
+
+    color: var(--accent-clr);
+    background-color: var(--main-dark-clr);
+
+    transition: color, background-color var(--default-animation);
+}
+
+.addInfoNavLink:hover,
+.addInfoNavLink:focus {
+    color: var(--add-clr-2);
+    background-color: transparent;
+}
